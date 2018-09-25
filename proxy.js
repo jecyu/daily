@@ -31,7 +31,9 @@ apiServer.listen(port, hostname, () => {
 
 // 创建一个图片代理服务
 const imgServer = http.createServer((req, res) => {
-  const url = "https://pic1.zhimg.com" + req.url.split("/img/")[1];
+  const url = req.url.split("/img/")[1];
+  // const url = "https://pic4.zhimg.com" + req.url.split("/img/")[1];
+  console.log(url);
   const options = {
     url: url,
     encoding: null
@@ -43,6 +45,7 @@ const imgServer = http.createServer((req, res) => {
       res.setHeader("Content-Type", contentType);
       res.setHeader("Access-Control-Allow-origin", "*");
       res.end(body);
+      // console.log(body);
     }
   }
   request.get(options, callback);
