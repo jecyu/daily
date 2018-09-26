@@ -13,26 +13,27 @@
         <template v-if="type === 'recommend'">
           <div v-for="list in recommendList" :key="list.id">
             <div class="daily-date">{{ formatDay(list.date) }}</div>
-             <Item v-for="item in list.stories" :key="item.id" :data="item">
+             <Item v-for="item in list.stories" :key="item.id" :data="item" @click.native="handleClick(item.id)">
             </Item>
           </div>
         </template>
         <template v-if="type === 'daily'">
-          <Item v-for="item in list" :data="item" :key="item.id">
+          <Item v-for="item in list" :data="item" :key="item.id" @click.native="handleClick(item.id)">
           </Item>
         </template>
       </div>
-      <!-- <daily-article></daily-article> -->
+      <daily-article :id="articledId"></daily-article>
     </div>
 </template>
 
 <script>
 import $ from "../libs/util";
 import Item from "./Item";
+import dailyArticle from "./DailyArticle";
 
 export default {
   name: "index",
-  components: { Item },
+  components: { Item, dailyArticle },
   data() {
     return {
       themes: [
@@ -65,7 +66,8 @@ export default {
       type: "recommend",
       recommendList: [],
       dailyTime: $.getTodayTime(),
-      isLoading: false
+      isLoading: false,
+      articledId: 0
     };
   },
   methods: {
@@ -137,6 +139,14 @@ export default {
         this.dailyTime -= 86400000;
         this.getRecommendList();
       }
+    },
+
+    /**
+     * handleClick() 处理文章项目单击
+     * @param {Number} id 文章 id
+     */
+    handleClick(id) {
+      this.articledId = id;
     }
   },
   mounted() {
