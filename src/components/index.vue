@@ -28,12 +28,21 @@
 
 <script>
 import $ from "../libs/util";
-import Item from "./Item";
-import dailyArticle from "./DailyArticle";
+// import Item from "./Item";
+// import dailyArticle from "./DailyArticle";
+
+// 按需加载（用于单个组件文件较大时）
+const Item = resolve => require(["./Item"], resolve);
+const dailyArticle = resolve => require(["./DailyArticle"], resolve);
 
 export default {
   name: "index",
-  components: { Item, dailyArticle },
+  components: {
+    Item: Item,
+    dailyArticle: dailyArticle
+    // Item,
+    // dailyArticle
+  },
   data() {
     return {
       themes: [
