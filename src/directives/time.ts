@@ -1,12 +1,12 @@
-const Time = {
+const Time: any = {
   // 获取当前时间戳
-  getUnix: function() {
-    let date = new Date();
+  getUnix(): number {
+    const date = new Date();
     return date.getTime();
   },
   // 获取今天 0 点 0 分 0 秒的时间戳
-  getTodayUnix: function() {
-    let date = new Date();
+  getTodayUnix() :number {
+    const date = new Date();
     date.setHours(0);
     date.setMinutes(0);
     date.setSeconds(0);
@@ -15,8 +15,8 @@ const Time = {
   },
 
   // 获取今年 1 月 1 日 0 点 0 分 0 秒的时间戳
-  getYearUnix: function() {
-    let date = new Date();
+  getYearUnix(): number {
+    const date = new Date();
     date.setMonth(0);
     date.setDate(1);
     date.setHours(0);
@@ -27,13 +27,13 @@ const Time = {
   },
 
   // 获取标准年月日
-  getLastDate: function(time) {
-    let date = new Date(time);
-    let month =
+  getLastDate(time: number) :string {
+    const date = new Date(time);
+    const month =
       date.getMonth() + 1 < 10
         ? "0" + (date.getMonth() + 1)
         : date.getMonth() + 1;
-    let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+    const day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
     return date.getFullYear() + "-" + month + "-" + day;
 
     // let value = date.toLocaleDateString();
@@ -41,12 +41,12 @@ const Time = {
   },
 
   // 转换时间
-  getFormatTime: function(timestamp) {
-    let now = this.getUnix();
-    let today = this.getTodayUnix();
-    let year = this.getYearUnix();
+  getFormatTime(timestamp: number) : string {
+    const now: number = this.getUnix();
+    const today: number = this.getTodayUnix();
+    const year = this.getYearUnix();
 
-    let timer = (now - timestamp) / 1000; // 转换为妙级时间戳
+    const timer = (now - timestamp) / 1000; // 转换为妙级时间戳
     let tip = ""; // 使用 switch 语句里，无法读取 tip 遍历
 
     // switch (true) {
@@ -84,13 +84,13 @@ const Time = {
 };
 
 export default {
-  bind: function(el, binding) {
+  bind: function(el: any, binding: any): void {
     el.innerHTML = Time.getFormatTime(binding.value);
     el.__timeout__ = setInterval(function() {
       el.innerHTML = Time.getFormatTime(binding.value);
     }, 60000);
   },
-  unbind: function(el) {
+  unbind: function(el: any): void {
     clearInterval(el.__timeout__);
     delete el.__timeout__;
   }

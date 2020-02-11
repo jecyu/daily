@@ -1,0 +1,40 @@
+{
+  "compilerOptions": { // 编译规则
+    "target": "esnext", // 编译版本
+    "module": "esnext", // 编译 es 版本对应的模块形式
+    "strict": true,
+    "experimentalDecorators": true,
+    "jsx": "preserve", // 在 .tsx 文件里支持 jsx
+    "importHelpers": true,  /* 编译后自动引入 var tslib_1 = require("tslib") */
+    "moduleResolution": "node", // 模块解析策略 node /classic https://www.tslang.cn/docs/handbook/module-resolution.html
+    "esModuleInterop": true, // 在编译时自动给该模块添加 default 属性，就可以通过 import moduleName from 'xxx' 的形式导入 非 ES6 模块，不再需要使用 import moduleName = require('xxx') 的形式。
+    "allowSyntheticDefaultImports": true, // 允许 import Vue from 'vue' 的形式
+    "sourceMap": true, // 生成一个.map.js的文件，用于其他工具来debugg，类似于webpack的sourceMap
+    "baseUrl": ".", // 根路径
+    "types": [  // webpack 环境下的软件包都包含在你的编译中，禁用自动保护 @type 里的软件包（针对全局声明的文件）
+      "webpack-env"
+    ],
+    "paths": {
+      "@/*": [ 
+        "src/*" // 在文件 import 路径中可以省略 src
+      ]
+    },
+    "lib": [ /* 指定当前项目需要注入哪些声明库文件它自动包含在 TypeScript 项目的编译上下文中
+      它能让你快速开始书写经过类型检查的 JavaScript 代码 */
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

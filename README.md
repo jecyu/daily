@@ -12,8 +12,14 @@ yarn install
 
 ### Compiles and hot-reloads for development
 
+1. 启动项目
 ```
 yarn run serve
+```
+
+2. 启动代理程序
+```
+yarn proxy
 ```
 
 ### Compiles and minifies for production
@@ -30,4 +36,5 @@ yarn run lint
 
 ## TODO 
 
-[ ] 自动拉取订阅的文章
+- [] 自动拉取订阅的文章
+- [x] 使用 TypeScript 重构
