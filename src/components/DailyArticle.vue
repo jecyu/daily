@@ -34,11 +34,10 @@ import { Vue, Component, Watch, Prop } from "vue-property-decorator";
 export default class DailyArticle extends Vue {
   private data: Object = {};
   private comments: Array<any> = [];
-  @Prop({ default: 0 })
-  id: number;
+  @Prop({ default: 0 }) private id!: number;  // 必须加 !，否则报没初始化的错误 ，！表示以后一定赋值
 
   @Watch("id")
-  onIdChanged(val: number) {
+  private onIdChanged(val: number) {
     if (val) {
       this.getArticle();
       this.getComments();

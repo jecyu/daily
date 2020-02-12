@@ -12,7 +12,7 @@ yarn install
 
 ### Compiles and hot-reloads for development
 
-1. 启动项目
+1. 启动主项目
 ```
 yarn run serve
 ```

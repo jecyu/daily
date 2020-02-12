@@ -26,7 +26,7 @@ export default class Item extends Vue {
   // data
   imgPath: string = $.imgPath;
   @Prop({ type: Object, default: {} })
-  data: Object;
+  private data!: Object;
 }
 // export default {
 //   props: {

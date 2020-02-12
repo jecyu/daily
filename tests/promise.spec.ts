@@ -1,7 +1,7 @@
 const mylib = require('../src/promise');
 describe('异步代码 Promise 测试', () => {
   it('should get "Hello DIST"', () => {
-    return mylib('DIST').then(result => {
+    return mylib('DIST').then((result: string) => {
       expect(result).toBe('Hello DIST');
     })
   });

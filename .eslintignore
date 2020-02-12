@@ -3,3 +3,4 @@
 /*.js
 /tests/
 /src/components/**/__test__/
+/node_modules/
