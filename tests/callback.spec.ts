@@ -1,4 +1,4 @@
-const mylib = require('../src/callback');
+import mylib  from '../src/utils/callback';
 describe('异步代码 callback 测试', () => {
   it('should get "Hello DIST"', (done: Function) => {
     mylib('DIST', (result: string) => {

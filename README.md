@@ -38,3 +38,4 @@ yarn run lint
 
 - [] 自动拉取订阅的文章
 - [x] 使用 TypeScript 重构
+- [] 使用 ts + react 重构

@@ -1,4 +1,4 @@
-module.exports = (bu: string) => {
+export default function(bu: string)  {
   return new Promise((resolve, reject) => {
     if (!bu) {
       reject("Empty string");

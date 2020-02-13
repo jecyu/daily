@@ -11,8 +11,11 @@
     "allowSyntheticDefaultImports": true, // 允许 import Vue from 'vue' 的形式
     "sourceMap": true, // 生成一个.map.js的文件，用于其他工具来debugg，类似于webpack的sourceMap
     "baseUrl": ".", // 根路径
-    "types": [  // webpack 环境下的软件包都包含在你的编译中，禁用自动保护 @type 里的软件包（针对全局声明的文件）
-      "webpack-env"
+    "types": [  // webpack 环境下的软件包都包含在你的编译中，禁用自动使用 @type 里的软件包（针对全局声明的文件）
+      "webpack-env",
+      "jest" /* Cannot find name 'describe'. Do you need to install type de
+      finitions for a test runner? Try `npm i @types/jest` or `npm i @types/mocha` and then add `jest` or `moch
+      a` to the types field in your tsconfig. */
     ],
     "paths": {
       "@/*": [ 
