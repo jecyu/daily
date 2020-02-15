@@ -1,0 +1,23 @@
+.daily-arctile {
+  margin-left: 450px;
+  padding: 20px;
+}
+
+.daily-arctile-title {
+  padding: 10px 0;
+  font-size: 28px;
+  font-weight: bold;
+  color: hsl(0, 0%, 13%);
+}
+
+.view-more a {
+  display: block;
+  padding: 4px 0;
+  border-radius: 3px;
+
+  cursor: pointer;
+  background: hsl(210, 25%, 97%);
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+}
